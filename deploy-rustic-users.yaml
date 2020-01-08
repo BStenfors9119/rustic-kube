@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rustic-users
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rustic-users
+  template:
+    metadata:
+      labels:
+        app: rustic-users
+    spec:
+      containers:
+        - name: rustic-users
+          image: localhost:5000/rustic-users
+          imagePullPolicy: Always

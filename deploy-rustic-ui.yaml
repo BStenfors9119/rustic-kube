@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rustic-ui
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rustic-ui
+    spec:
+      containers:
+        - name: rustic-ui
+          image: localhost:5000/rustic-ui
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80

@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rustic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rustic
+  template:
+    metadata:
+      labels:
+        app: rustic
+    spec:
+      containers:
+      - name: rustic-echo
+        image: gcr.io/kubernetes-e2e-test-images/echoserver:2.1
+        ports:
+        - containerPort: 8080

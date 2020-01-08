@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rustic-users-service
+  labels:
+    app: rustic-users
+spec:
+  type: NodePort
+  ports:
+    - port: 50051
+      targetPort: 50051
+      name: grpc
+  selector:
+    app: rustic-users

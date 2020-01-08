@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rustic-auth
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rustic-auth
+  template:
+    metadata:
+      labels:
+        app: rustic-auth
+    spec:
+      containers:
+        - name: rustic-auth
+          image: localhost:5000/rustic-auth
+          imagePullPolicy: Always

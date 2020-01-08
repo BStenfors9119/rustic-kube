@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rustic-ui-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: rustic.local
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: rustic-ui-service
+            servicePort: 80

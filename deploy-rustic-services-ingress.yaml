@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: rustic-services-ingress
@@ -17,3 +17,7 @@ spec:
           backend:
             serviceName: rustic-users-service
             servicePort: 50051
+        - path: /locations(/|$)(.*)
+          backend:
+           serviceName: rustic-locations-service
+           servicePort: 80

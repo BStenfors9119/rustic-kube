@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rustic-auth-service
+  name: rustic-locations-services
   labels:
-    app: rustic-auth
+    app: rustic-locations
 spec:
   type: NodePort
   ports:
@@ -15,5 +15,4 @@ spec:
       targetPort: 50051
       name: grpc
   selector:
-    app: rustic-auth
-
+    app: rustic-locations
